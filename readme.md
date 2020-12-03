@@ -2,7 +2,7 @@
 
 implementation for paper: [Bidirectional LSTM-CRF Models for Sequence Tagging](https://arxiv.org/pdf/1508.01991.pdf)
 
-## Env
+## Environment
 
 ```Plain Text
 tensorflow==2.3.0
