@@ -39,7 +39,7 @@ class BiLstmCrf(Model):
 
 
 class CrfLoss(tf.keras.losses.Loss):
-    def __init__(self, name="crf loss"):
+    def __init__(self, name="crf_loss"):
         super().__init__(name=name)
 
     def call(self, y_true, y_pred):
@@ -53,7 +53,7 @@ class CrfLoss(tf.keras.losses.Loss):
 
 
 class CrfAcc(tf.keras.metrics.Metric):
-    def __init__(self, name="crf acc", dtype=None, **kwargs):
+    def __init__(self, name="crf_acc", dtype=None, **kwargs):
         super().__init__(name=name, dtype=dtype, **kwargs)
 
         self.init_shape = []
@@ -63,8 +63,8 @@ class CrfAcc(tf.keras.metrics.Metric):
                 name, shape=self.init_shape, initializer="zeros", dtype=self.dtype
             )
 
-        self.positives = _zero_wt_init("crf acc")
-        self.count = _zero_wt_init("total count")
+        self.positives = _zero_wt_init("positive")
+        self.count = _zero_wt_init("count")
 
     def update_state(self, y_true, y_pred):
         decoded_sequences, potentials, sequence_lengths, chain_kernel = y_pred
