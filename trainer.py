@@ -89,6 +89,5 @@ class Trainer:
                 tf.print("val acc improved, save model")
                 best_acc = self.val_acc_metric.result().numpy()
                 self.model.save(self.output_dir, save_format="tf")
-                tf.kera
             else:
                 tf.print("val acc not improved")
